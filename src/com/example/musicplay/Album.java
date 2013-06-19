@@ -13,6 +13,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
     TextView xTextView=  new TextView(getActivity());
     xTextView.setText("专辑");
     //xxxxxxxxxxxxxxxxx
+    
     return xTextView;
 }
 }
