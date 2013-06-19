@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">musicPlay</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="arts">艺术家</string>
+    <string name="album">专辑</string>
+    <string name="songs">歌曲</string>
+    <string name="near">最近播放</string>
+    <string name="liupai">流派</string>
+    <string name="name">myplay</string>
+    <string name="query">文本不能为空</string>
+    <string name="search">search</string>
+    <string name="more">更多</string>
+    <string name="fetching_content_please_wait">正在获取.......</string>
+
+    <string-array name="SEARCH_MENU">
+        <item>Play Now</item>
+        <item>Download</item>
+    </string-array>
+
+</resources>

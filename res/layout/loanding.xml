@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout android:gravity="center" android:orientation="vertical" 
+    android:background="@android:color/black" android:layout_width="match_parent" android:layout_height="wrap_content"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/more"
+        android:textColor="#ff9fcef0"
+        android:textSize="16.0sp" 
+      android:layout_gravity="center_vertical|center_horizontal"  
+        />
+    </LinearLayout>

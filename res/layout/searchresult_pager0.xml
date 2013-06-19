@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <LinearLayout
+        android:id="@+id/select_search_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical" >
+
+        <EditText
+            android:id="@+id/search_edit2"
+            style="@style/Widget.EditText"
+            android:layout_width="220dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Artist,Song,Albums"
+            android:singleLine="true"
+            android:textSize="15sp" 
+                    android:inputType="textPersonName"
+                            android:ems="10">
+        </EditText>
+        <ImageButton
+            android:id="@+id/btn_search1"
+            style="@style/Widget.Holo.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0"
+            android:scaleType="center"
+            android:src="@drawable/ic_action_search" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="0.0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000" >
+    </ListView> 
+
+<include
+    android:layout_height="28dp"
+    layout="@layout/pager_bar" />
+
+</LinearLayout>
