@@ -18,7 +18,6 @@ import android.widget.BaseAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +27,7 @@ import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.assist.SimpleImageLoadingListener;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
+import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -35,10 +35,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-public class Search extends Fragment implements OnItemClickListener, OnClickListener {
+public class Search extends Fragment implements  OnClickListener ,ActionSlideExpandableListView.OnActionClickListener,OnItemClickListener {
     EditText editText;
     ImageButton button;
-    ListView listView;
+    //com.tjerkw.slideexpandable.library.ActionSlideExpandableListView
+ActionSlideExpandableListView listView;
     LayoutInflater inflater;
     String searchNameString;
     Myadapter adapter;
@@ -61,10 +62,11 @@ public class Search extends Fragment implements OnItemClickListener, OnClickList
         .build();
         button = (ImageButton) view.findViewById(R.id.btn_search1);
         editText = (EditText) view.findViewById(R.id.search_edit2);
-        listView = (ListView) view.findViewById(R.id.list);
+        listView = (ActionSlideExpandableListView) view.findViewById(R.id.list);
+        listView.setItemActionListener(this);//下拉框点击事件
+        listView.setOnItemClickListener(this);
         mPagerView = new PagerBarHelper(view.findViewById(R.id.FooterBar), getActivity());
         mPagerView.setNextOnClickListener(this);
-        listView.setOnItemClickListener(this);
         if (list != null) {
             adapter = new Myadapter();
             listView.setAdapter(adapter);
@@ -141,7 +143,7 @@ public class Search extends Fragment implements OnItemClickListener, OnClickList
         // private ImageLoadingListener animateFirstListener = new
         // AnimateFirstDisplayListener();
         private class ViewHolder {
-            public TextView text, singer;
+            public TextView text, singer,timeTextView;
             public ImageView image;
             public ImageButton action;
         }
@@ -172,19 +174,25 @@ public class Search extends Fragment implements OnItemClickListener, OnClickList
                 holder.singer = (TextView) view.findViewById(R.id.singer);
                 holder.image = (ImageView) view.findViewById(R.id.listitem);
                 holder.action=(ImageButton) view.findViewById(R.id.time_button);
+                holder.timeTextView=(TextView) view.findViewById(R.id.time);
                 view.setTag(holder);
             } else {
                 holder = (ViewHolder) view.getTag();
             }
             holder.text.setText(list.get(position).nameString);
             holder.singer.setText(list.get(position).singerString);
-            holder.action.setOnClickListener(new OnClickListener() {
-                
+            holder.timeTextView.setVisibility(View.GONE);
+           /* holder.action.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-System.out.println("点击效果"+position);                    
+                    
+                    
+                    
+                    
+                    
+                   System.out.println("点击效果"+position);                    
                 }
-            });
+            });*/
            /* if (imageLoader==null) {
                 imageLoader = ImageLoader.getInstance();
                 System.out.println("为空");
@@ -254,5 +262,10 @@ dialog.show();
                 }
             }
         }
+    }
+    @Override
+    public void onClick(View itemView, View clickedView, int position) {
+        // TODO Auto-generated method stub
+        
     }
 }

@@ -34,15 +34,21 @@
             android:scaleType="center"
             android:src="@drawable/ic_action_search" />
     </LinearLayout>
-
-    <ListView
+<com.tjerkw.slideexpandable.library.ActionSlideExpandableListView
+	android:id="@+id/list"
+	android:layout_width="fill_parent"
+	   android:layout_height="0.0dp"
+        android:layout_weight="1"
+        android:cacheColorHint="#00000000"
+	/>
+<!--     <ListView
         android:id="@+id/list"
         android:layout_width="fill_parent"
         android:layout_height="0.0dp"
         android:layout_weight="1"
         android:cacheColorHint="#00000000" >
     </ListView> 
-
+ -->
 <include
     android:layout_height="28dp"
     layout="@layout/pager_bar" />
