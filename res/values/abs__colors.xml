@@ -30,4 +30,6 @@
     <color name="darker_gray">#aaa</color>
     <drawable name="screen_background_dark_transparent">#80000000</drawable>
        <color name="transparent">#00000000</color>
+              <color name="bg">#ff222222</color>
+       
 </resources>

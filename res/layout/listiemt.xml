@@ -1,93 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	android:orientation="vertical" android:layout_width="match_parent"
-	android:layout_height="match_parent" android:layout_marginTop="2dip"
-	android:background="@android:color/transparent"
-	 android:descendantFocusability= "blocksDescendants"
-	>
-<RelativeLayout 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="2dip"
+    android:background="@android:color/transparent"
+    android:descendantFocusability="blocksDescendants"
     android:orientation="vertical" >
-     <View android:layout_width="fill_parent"
-        android:layout_height="1px"
-        android:background="@drawable/list_line"/>
-     
- <TextView
-     android:id="@+id/music1"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:layout_marginLeft="7px"
-     android:layout_marginTop="5px"
-     android:layout_toRightOf="@+id/listitem"
-     android:ellipsize="marquee"
-     android:focusable="true"
-     android:focusableInTouchMode="true"
-     android:marqueeRepeatLimit="marquee_forever"
-     android:scrollHorizontally="true"
-       android:textColor="#ffffff"
-        android:textStyle="bold" 
-     android:text="这才是真"
-     android:textSize="15sp" />
- <TextView android:id="@+id/singer"
-        android:layout_width="wrap_content"
+<include layout="@layout/item_default"/>
+    <LinearLayout
+        android:id="@+id/expandable"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="7px"
-        android:layout_toRightOf="@+id/listitem"
-        android:layout_below="@id/music1"
-        android:singleLine="true"
-        android:textSize="14sp"
-         android:text="dfdfdxxx"
-         />
-  <ImageView
-     android:id="@+id/listitem"
-     android:layout_width="64px"
-     android:layout_height="64px"
-     android:layout_alignParentLeft="true"
-     android:layout_alignParentTop="true"
-     android:background="@drawable/ic_launcher" />.
-		<ImageButton
-		    android:id="@+id/time_button"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_alignBottom="@+id/listitem"
-		    android:layout_alignParentRight="true"
-		    android:background="@drawable/listitem_selector"
-		    android:paddingRight="5dip"
-		    android:src="@drawable/action_arrow" 
-		    />
-
-		<TextView
-		    android:id="@+id/time"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_below="@+id/music1"
-		    android:layout_toLeftOf="@+id/time_button"
-		    android:singleLine="true"
-		    android:text="gagsg"
-		    android:textSize="14sp" 
-		   />
-
-		    </RelativeLayout>
-	<LinearLayout
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:id="@+id/expandable"
-			android:background="#000000">
-
-		<Button
-				android:id="@+id/buttonA"
-				android:layout_width="fill_parent"
-				android:layout_height="fill_parent" android:layout_weight="0.5"
-				android:text="Action A"
-				android:textSize="12dip"/>
-		<Button
-				android:id="@+id/buttonB"
-				android:layout_width="fill_parent"
-				android:layout_height="fill_parent"
-				android:layout_weight="0.5"
-				android:text="Action B"
-				android:textSize="12dip"/>
-	</LinearLayout>
+        android:orientation="horizontal" >
+        <Button
+            android:id="@+id/buttonA"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.3"
+            android:background="@drawable/listitem_button_selector"
+            android:text="@string/Download"
+            android:textSize="18dp" 
+            android:textColor="@android:color/white"
+            />
+        <Button
+            android:id="@+id/buttonB"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.3"
+                     android:background="@drawable/listitem_button_selector"
+                android:text="@string/Play_Now"
+            android:textSize="18dp" 
+                        android:textColor="@android:color/white"/>
+          <Button
+            android:id="@+id/buttonC"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.3"
+                     android:background="@drawable/listitem_button_selector"
+                android:text="@string/Playlists"
+            android:textSize="18dp" 
+                        android:textColor="@android:color/white"/>
+    </LinearLayout>
 </LinearLayout>

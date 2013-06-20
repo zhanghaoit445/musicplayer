@@ -1,9 +1,13 @@
 package com.example.musicplay;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.DownloadManager;
+import android.app.DownloadManager.Query;
 import android.app.DownloadManager.Request;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
+import android.view.View;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -700,25 +704,23 @@ public static List<MusicInfo> getSosoSRs(String reqURL) {
 				
 
 					}
-				
-
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-
 			return srs;
 		}
+
         public static void downland(DownloadManager downloadManager,String url,String name ) {
 		    Uri uri = Uri.parse(url);
 		    DownloadManager.Request request = new Request(uri);
+		    request.allowScanningByMediaScanner();//允许扫面
 		    //设置允许使用的网络类型，这里是移动网络和wifi都可以  
 		    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE|DownloadManager.Request.NETWORK_WIFI);  
 		    //禁止发出通知，既后台下载，如果要使用这一句必须声明一个权限：android.permission.DOWNLOAD_WITHOUT_NOTIFICATION  
-		    request.setShowRunningNotification(true);  
-		    //不显示下载界面  
-		    request.setVisibleInDownloadsUi(true);
+		//     request.setNotificationVisibility(View.VISIBLE);  
+		    request.setVisibleInDownloadsUi(false);
 //		      设置下载后文件存放的位置,如果sdcard不可用，那么设置这个将报错，因此最好不设置如果sdcard可用，
 		    //下载后的文件        在/mnt/sdcard/Android/data/packageName/files目录下面，
 		    //如果sdcard不可用,设置了下面这个将报错，不设置，下载后的文件在/cache这个  目录下面
@@ -728,7 +730,18 @@ public static List<MusicInfo> getSosoSRs(String reqURL) {
 		    if (!path.isDirectory()) {
 		        path.mkdirs();
 		    }
-		    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MUSIC,name +".mp3");//设置下载到music 目录里面
+		    try {
+                
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+		    try {
+	                  String uString=  url.substring(url.lastIndexOf("."));
+		    request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MUSIC,name +uString);
+		    } catch (Exception e) {
+		        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MUSIC,name +".mp3");//设置下载到music 目录里面
+            }
+		
 	      	long id = downloadManager.enqueue(request);
 		}
 }

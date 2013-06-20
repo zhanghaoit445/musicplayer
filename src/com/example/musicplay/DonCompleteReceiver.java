@@ -1,29 +1,27 @@
 package com.example.musicplay;
 
 import android.app.DownloadManager;
+import android.app.DownloadManager.Query;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
 import android.widget.Toast;
 
 public class DonCompleteReceiver extends BroadcastReceiver {
-
 	@Override
 	public void onReceive(Context context, Intent intent) {
-		
 		String action = intent.getAction();
 		System.out.println(action);
-		if(action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {//下载完成
+	//	if(action.equals(DownloadManager.ACTION_DOWNLOAD_COMPLETE)) {//下载完成
 			long id = intent.getLongExtra(DownloadManager.EXTRA_DOWNLOAD_ID, 0);   
+			Query query=new Query();
 			//TODO 判断这个id与之前的id是否相等，如果相等说明是之前的那个要下载的文件
 			Toast.makeText(context, 
 					"Done",1).show();
 		//	ACTION_MEDIA_REMOVED 被删除
-		context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"
+			/*	context.sendBroadcast(new Intent(Intent.ACTION_MEDIA_MOUNTED, Uri.parse("file://"
 			+ Environment.getExternalStorageDirectory())));
-		/*	Query query = new Query();
+			Query query = new Query();
 			query.setFilterById(id);
 			downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
 			Cursor cursor = downloadManager.query(query);
@@ -64,7 +62,7 @@ public class DonCompleteReceiver extends BroadcastReceiver {
 				cursor.close();
 			}*/
 			
-		}/*else if(action.equals(DownloadManager.ACTION_NOTIFICATION_CLICKED)) {
+		/*else if(action.equals(DownloadManager.ACTION_NOTIFICATION_CLICKED)) {
 			//点击正在下载框到时候
 Toast.makeText(context, 
 		"dolanding",1).show();

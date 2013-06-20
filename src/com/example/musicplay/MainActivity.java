@@ -48,7 +48,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         Log.i("xx", "屏幕改变");
         Toast.makeText(MainActivity.this, "百", 1).show();
     }
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -62,7 +61,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 //v.setBackgroundResource(R)
                 break;
             case R.id.player:
-
                 break;
             default:
                 break;

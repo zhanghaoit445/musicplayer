@@ -18,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.musicplay.R;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import java.io.FileDescriptor;
 import java.io.FileNotFoundException;
@@ -29,7 +30,6 @@ public class MusicListAdapter extends BaseAdapter {
 	private Context myCon;
 	private Cursor myCur;
 	private int pos=-1;
-
 	public MusicListAdapter(Context con, Cursor cur) {
 		myCon = con;
 		myCur = cur;
@@ -45,41 +45,38 @@ public class MusicListAdapter extends BaseAdapter {
 	public long getItemId(int position) {
 		return position;
 	}
-
-	
 	public View getView(int position, View convertView, ViewGroup parent) {
-		convertView = LayoutInflater.from(myCon).inflate(R.layout.listiemt,
+		convertView = LayoutInflater.from(myCon).inflate(R.layout.musiclist,
 				null);
 		myCur.moveToPosition(position);
-		TextView tv_music = (TextView) convertView.findViewById(R.id.music1);
+		TextView tv_music = (TextView) convertView.findViewById(R.id.music_name);
 		if (myCur.getString(0).length()>15){
 			try {
 				String musicTitle = myCur.getString(0).trim().substring(0,12)+"...";
 				tv_music.setText(musicTitle);
 			} catch (Exception e) {
-				
 				e.printStackTrace();
 			}
 		}else {
 			tv_music.setText(myCur.getString(0).trim());
 		}
-		TextView tv_singer = (TextView) convertView.findViewById(R.id.singer);
+		TextView tv_singer = (TextView) convertView.findViewById(R.id.music_singer);
 		if (myCur.getString(2).equals("<unknown>")){
 			tv_singer.setText("未知艺术家");
 		}else{
 			tv_singer.setText(myCur.getString(2));
 		}
-		TextView tv_time = (TextView) convertView.findViewById(R.id.time);
-		tv_time.setText(toTime(myCur.getInt(1)));
-		ImageView img = (ImageView)convertView.findViewById(R.id.listitem);
+		ImageView img = (ImageView)convertView.findViewById(R.id.music_image);
 		if (position == pos){
 			img.setImageResource(R.drawable.isplaying);
 		}else{
 			//img.setImageResource(R.drawable.item);
-			Bitmap  bm = getArtwork(myCon,myCur.getInt(3),
-					myCur.getInt(myCur.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID)),true);
-			img.setImageBitmap(bm);
-			
+			Bitmap  bm = getArtwork(myCon,
+			        myCur.getInt(3),
+					myCur.getInt(myCur.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID)),
+					true);
+		    Bitmap roundedBitmap = RoundedBitmapDisplayer.roundCorners(bm, img, 60);
+		    img.setImageBitmap(roundedBitmap);
 		}
 		return convertView;
 	}
@@ -213,8 +210,6 @@ public class MusicListAdapter extends BaseAdapter {
         }  
         return bm;  
     }  
-    
-  
     static int computeSampleSize(BitmapFactory.Options options, int target) {  
         int w = options.outWidth;  
         int h = options.outHeight;  
