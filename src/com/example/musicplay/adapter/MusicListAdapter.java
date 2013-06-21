@@ -71,9 +71,7 @@ public class MusicListAdapter extends BaseAdapter {
 			img.setImageResource(R.drawable.isplaying);
 		}else{
 			//img.setImageResource(R.drawable.item);
-			Bitmap  bm = getArtwork(myCon,
-			        myCur.getInt(3),
-					myCur.getInt(myCur.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID)),
+			Bitmap  bm = getArtwork(myCon,myCur.getInt(3),	myCur.getInt(myCur.getColumnIndex(MediaStore.Audio.Media.ALBUM_ID)),
 					true);
 		    Bitmap roundedBitmap = RoundedBitmapDisplayer.roundCorners(bm, img, 60);
 		    img.setImageBitmap(roundedBitmap);

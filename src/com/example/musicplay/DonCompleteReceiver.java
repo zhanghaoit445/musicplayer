@@ -45,7 +45,7 @@ public class DonCompleteReceiver extends BroadcastReceiver {
 				}
 			}
 			cursor.close();*/
-			              /*    if(path.startsWith("content:")) {//没有sd卡到时候  放在内置存储上
+			                /* if(path.startsWith("content:")) {//没有sd卡到时候  放在内置存储上
                                cursor = context.getContentResolver().query(Uri.parse(path), null, null, null, null);
                                columnCount = cursor.getColumnCount();
                                while(cursor.moveToNext()) {
@@ -62,21 +62,26 @@ public class DonCompleteReceiver extends BroadcastReceiver {
 				cursor.close();
 			}*/
 			
-		/*else if(action.equals(DownloadManager.ACTION_NOTIFICATION_CLICKED)) {
+		/* if(action.equals(DownloadManager.ACTION_NOTIFICATION_CLICKED)) {
 			//点击正在下载框到时候
 Toast.makeText(context, 
 		"dolanding",1).show();
 //全部无须处理  
-		}*//*else if (action.equals(DownloadManager.ERROR_INSUFFICIENT_SPACE)) {// 网络链接 中断错误
-		
+		}else if (action.equals(DownloadManager.ERROR_INSUFFICIENT_SPACE)) {// 网络链接 中断错误
+		    Toast.makeText(context, 
+		            "ERROR_INSUFFICIENT_SPACE",1).show();
 		}else if (action.equals(DownloadManager.ERROR_INSUFFICIENT_SPACE)) {// 空间不够
-			
+		    Toast.makeText(context, 
+		            "ERROR_INSUFFICIENT_SPACE",1).show();
 		}else if (action.equals(DownloadManager.ERROR_FILE_ALREADY_EXISTS)) {// 文件已经那个存在
-			
+		    Toast.makeText(context, 
+		            "ERROR_FILE_ALREADY_EXISTS",1).show();
 		}else if (action.equals(DownloadManager.	ERROR_CANNOT_RESUME)) {// 未知错去
-			
+		    Toast.makeText(context, 
+		            "ERROR_CANNOT_RESUME",1).show();
 		}else if (action.equals(DownloadManager.	ERROR_DEVICE_NOT_FOUND	)) {// 没有 外部存储
-			
+		    Toast.makeText(context, 
+                    "ERROR_DEVICE_NOT_FOUND",1).show();
 		}*/
 	}
 

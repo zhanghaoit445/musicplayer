@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+   <LinearLayout
+              android:id="@+id/listitem3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+    <ImageView
+        android:id="@+id/listitem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        	android:layout_gravity="center"
+        android:src="@drawable/ic_launcher"
+        android:layout_marginTop="3dp"
+         />
+</LinearLayout>
+     <LinearLayout
+              android:id="@+id/listitem4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_toRightOf="@+id/listitem3"
+          >
+    <RelativeLayout 
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+        > 
+    <TextView
+        android:id="@+id/music1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7px"
+        android:layout_marginTop="5px"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:text="这才是真"
+        android:textColor="#ffffff"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+    <TextView
+        android:id="@+id/singer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/music1"
+        android:layout_marginLeft="7px"
+        android:singleLine="true"
+        android:text="dfdfdxxx"
+        android:textSize="14sp" />
+    <ImageButton
+        android:id="@+id/time_button"
+        android:layout_width="64px"
+        android:layout_height="64px"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/music1"
+        android:background="@drawable/listitem_selector"
+        android:paddingRight="10dip"
+        android:src="@drawable/action_arrow" />
+    </RelativeLayout>
+    </LinearLayout>
+<View
+        android:layout_width="fill_parent"
+        android:layout_height="1px"
+        android:background="@drawable/list_line" 
+        android:layout_alignParentBottom="true"/>
+</RelativeLayout>
