@@ -14,9 +14,11 @@
     <string name="search">search</string>
     <string name="more">更多</string>
     <string name="fetching_content_please_wait">正在获取.......</string>
-<string name="Playlists">Playlists</string>
+<string name="Playlists">Play Now</string>
     <string name="Download">Download</string>
+      <string name="Del">Delete</string>
 <string name="Play_Now">add</string>
+<string name="AlbumNo">未知艺术家</string>
     <string-array name="SEARCH_MENU">
         <item>Play Now</item>
         <item>Download</item>

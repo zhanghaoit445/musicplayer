@@ -24,30 +24,22 @@ public void onCreate(Bundle savedInstanceState) {
             MediaStore.Audio.Media._ID,
             MediaStore.Audio.Media.DISPLAY_NAME,
             MediaStore.Audio.Media.ALBUM_ID,} , null, null,null);
+     
         // setListAdapter(new MusicListAdapter(getActivity(), c));
 }
 @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
                View view=  inflater.inflate(R.layout.searchresult_pager0, container,false);
        view.findViewById(R.id.select_search_layout).setVisibility(View.GONE);
        listview=(ActionSlideExpandableListView) view.findViewById(R.id.list);
-       listview.setAdapter(new MusicListAdapter(getActivity(), c));
+    listview.setAdapter(new MusicListAdapter(getActivity(), c));
        listview.setItemActionListener(new ActionSlideExpandableListView.OnActionClickListener() {
            @Override
-           public void onClick(View listView, View buttonview, int position) {/*
-                                        MusicInfo musicInfo=  list.get(position);
-               switch (buttonview.getId()) {
-                   case R.id.buttonA://下载
-                     Util.downland(downloadManager, musicInfo.addresString, musicInfo.nameString);
-                       break;
-                   case R.id.buttonB://播放
-                       break;
-                   case R.id.buttonC://加入队列
-                       break;
-                   default:
-                       break;
-               }
-           */}
+           public void onClick(View listView, View buttonview, int position) {
+               ////
+               
+           }
        }, R.id.music_buttonA, R.id.music_buttonB, R.id.music_buttonC);
                return view;
     }

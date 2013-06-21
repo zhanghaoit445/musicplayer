@@ -1,4 +1,3 @@
-
 package com.example.musicplay;
 
 import android.app.DownloadManager;
@@ -85,9 +84,6 @@ public class Search extends Fragment implements OnClickListener, OnItemClickList
             }
         }, R.id.buttonA, R.id.buttonB, R.id.buttonC);
         listView.setOnItemClickListener(this);
-        MainActivity xxActivity= (MainActivity) getActivity();
-        Toast.makeText(xxActivity, xxActivity+"", 1).show();
-        
         mPagerView = new PagerBarHelper(view.findViewById(R.id.FooterBar), getActivity());
         mPagerView.setNextOnClickListener(this);
         if (list != null) {
@@ -105,7 +101,7 @@ public class Search extends Fragment implements OnClickListener, OnItemClickList
                 }
                 searchNameString = editText.getText().toString();
                 if (searchNameString == null)
-                    Toast.makeText(getActivity().getApplicationContext(), R.string.query, 1).show();
+                    Toast.makeText(getActivity(), R.string.query, 1).show();
                 else {
                     try {
                         new Myhandle().execute(Util.urlString
@@ -126,7 +122,7 @@ public class Search extends Fragment implements OnClickListener, OnItemClickList
         return view;
     }
 
-    LinkedList<MusicInfo> list;
+    LinkedList<MusicInfo> list=new LinkedList<MusicInfo>();
     private class Myhandle extends AsyncTask<String, Void, LinkedList<MusicInfo>> {
         @Override
         protected LinkedList<MusicInfo> doInBackground(String... params) {
@@ -153,7 +149,7 @@ public class Search extends Fragment implements OnClickListener, OnItemClickList
                     adapter.notifyDataSetChanged();
                 }
             } else if (result != null) {// 第一次请求成功
-                list = result;
+                list .addAll(result);
                 adapter = new Myadapter();
                 listView.setAdapter(adapter);
             }
