@@ -26,6 +26,6 @@ public class test extends AndroidTestCase{
         System.out.println(c.getString(2));
         System.out.println(c.getString(0));
         System.out.println(c.getString(1));
-    }
+    }//https://github.com/zhanghaoit445/player.git
     }
 }
