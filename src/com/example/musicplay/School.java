@@ -11,6 +11,7 @@ public class School extends Fragment {
 @Override
 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     TextView xTextView=  new TextView(getActivity());
+    xTextView.setId(5);
     xTextView.setText("流派");
     return xTextView;
 }

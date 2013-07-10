@@ -715,7 +715,7 @@ public static List<MusicInfo> getSosoSRs(String reqURL) {
         public static void downland(DownloadManager downloadManager,String url,String name ) {
 		    Uri uri = Uri.parse(url);
 		    DownloadManager.Request request = new Request(uri);
-		    request.allowScanningByMediaScanner();//允许扫面
+		  request.allowScanningByMediaScanner();//允许扫面3.0系统以上
 		    //设置允许使用的网络类型，这里是移动网络和wifi都可以  
 		    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE|DownloadManager.Request.NETWORK_WIFI);  
 		    //禁止发出通知，既后台下载，如果要使用这一句必须声明一个权限：android.permission.DOWNLOAD_WITHOUT_NOTIFICATION  

@@ -31,7 +31,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         TitlePageIndicator indicator = (TitlePageIndicator) findViewById(R.id.indicator);
         indicator.setViewPager(mPager);
         indicator.setFooterIndicatorStyle(IndicatorStyle.Triangle);
-        // indicator.setOnCenterItemClickListener(this);
+      //  indicator.setOnCenterItemClickListener(this);
         button = (ImageButton) findViewById(R.id.min_button3);
         next = (ImageButton) findViewById(R.id.next);
         play = (ImageButton) findViewById(R.id.play);

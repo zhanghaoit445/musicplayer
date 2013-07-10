@@ -78,7 +78,6 @@ public class MusicListAdapter extends BaseAdapter {
 		}
 		return convertView;
 	}
-	
 	public void setItemIcon(int position){
 		pos = position;
 	}

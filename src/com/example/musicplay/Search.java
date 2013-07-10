@@ -50,6 +50,7 @@ public class Search extends Fragment implements OnClickListener, OnItemClickList
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.searchresult_pager0, null);
+        view.setId(3);
         this.inflater = inflater;
         imageLoader = ImageLoader.getInstance();
         options = new DisplayImageOptions.Builder()

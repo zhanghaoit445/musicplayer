@@ -24,13 +24,12 @@ public void onCreate(Bundle savedInstanceState) {
             MediaStore.Audio.Media._ID,
             MediaStore.Audio.Media.DISPLAY_NAME,
             MediaStore.Audio.Media.ALBUM_ID,} , null, null,null);
-     
         // setListAdapter(new MusicListAdapter(getActivity(), c));
 }
 @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
                View view=  inflater.inflate(R.layout.searchresult_pager0, container,false);
+               view.setId(2);
        view.findViewById(R.id.select_search_layout).setVisibility(View.GONE);
        listview=(ActionSlideExpandableListView) view.findViewById(R.id.list);
     listview.setAdapter(new MusicListAdapter(getActivity(), c));

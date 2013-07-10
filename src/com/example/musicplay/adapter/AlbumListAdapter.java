@@ -47,7 +47,6 @@ public class AlbumListAdapter extends BaseAdapter{
 		} else{
 			artist.setText(myMap.get(albums[position]));
 		}
-		
 		ImageView Albumsitem = (ImageView)convertView.findViewById(R.id.Albumsitem);
 		Albumsitem.setImageResource(R.drawable.ic_launcher);
 		return convertView;

@@ -11,6 +11,7 @@ public class Cach extends Fragment {
 @Override
 public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     TextView xTextView=  new TextView(getActivity());
+    xTextView.setId(4);
     xTextView.setText("最近播放");
     return xTextView;
 }
